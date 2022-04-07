@@ -1,13 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Task = (props) => {
-
+const { text, id, removeItem } = props;
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
-        <Text style={styles.itemText}>{props.text}</Text>
+        <Icon.Button
+                name="remove"
+                backgroundColor="red"
+                onPress={ () =>removeItem(id)}
+              >
+              </Icon.Button>
+        <Text style={styles.itemText}> &emsp; {text} </Text>
       </View>
       <View style={styles.circular}></View>
     </View>
